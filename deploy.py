@@ -1,6 +1,6 @@
 import paramiko
 
-HOST = "35.154.77.244"
+HOST = "13.200.215.17"
 USERNAME = "ec2-user"
 KEY_FILE = "my-key.pem"
 
