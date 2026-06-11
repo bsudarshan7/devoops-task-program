@@ -1,4 +1,4 @@
-name: Python Demo
+name: Deploy Python File
 
 on:
   push:
@@ -6,15 +6,20 @@ on:
       - main
 
 jobs:
-
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: pip install paramiko
 
-      - name: Run Python
+      - name: Setup SSH Key
+        run: |
+          echo "${{ secrets.EC2_KEY }}" > my-key.pem
+          chmod 400 my-key.pem
 
-        run: python main.py
+      - name: Deploy to EC2
+        run: python deploy.py
