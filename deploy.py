@@ -1,8 +1,8 @@
 import paramiko
 
 HOST = "35.154.77.244"
-USERNAME = "ec2-user"
-KEY_FILE = "sab754.pem"
+USERNAME = "ubuntu"
+KEY_FILE = "my-key.pem"
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
