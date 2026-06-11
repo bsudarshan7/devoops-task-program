@@ -1,26 +1,23 @@
 import paramiko
 
-EC2_HOST = "YOUR_EC2_PUBLIC_IP"
-EC2_USER = "ubuntu"  # Amazon Linux: ec2-user
-KEY_FILE = "my-key.pem"
-
-local_file = "main.py"
-remote_file = "/home/ubuntu/main.py"
+HOST = "35.154.77.244"
+USERNAME = "ec2-user"
+KEY_FILE = "sab754.pem"
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 ssh.connect(
-    hostname=EC2_HOST,
-    username=EC2_USER,
+    hostname=HOST,
+    username=USERNAME,
     key_filename=KEY_FILE
 )
 
 sftp = ssh.open_sftp()
 
-sftp.put(local_file, remote_file)
+sftp.put("main1.py", "/home/ubuntu/main1.py")
 
-print(f"{local_file} uploaded successfully to {remote_file}")
+print("main1.py uploaded successfully!")
 
 sftp.close()
 ssh.close()
