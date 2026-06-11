@@ -7,5 +7,5 @@ phases:
 
   build:
     commands:
-      - echo "Running Python Program..."
+      - echo "Starting Student Marks Analyzer..."
       - python main.py
