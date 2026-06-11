@@ -9,7 +9,3 @@ phases:
     commands:
       - echo "Running Python Program..."
       - python main.py
-
-artifacts:
-  files:
-    - '**/*'
